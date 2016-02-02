@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="end" data-ng-app="app">
+	<head>
+		<meta charset="UTF-8">
+		<title>How Long is That Movie?</title>
+
+		<!-- Ionic Libraries -->
+		<link rel="stylesheet" href="lib/ionic/css/ionic.css">
+		<script src="lib/ionic/js/ionic.bundle.js"></script>
+
+		<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+
+		<!-- My App --> 
+		<link rel="stylesheet" href="css/style.css">
+		<script src="js/app.js"></script>
+	</head>
+	<body data-ng-controller="MovieInfoCtrl" ng-cloak>
+		<ion-header-bar class="bar-balanced">
+			<h1 class="title">Movie Information</h1>
+			<input type="text" class="search-box"><button class="button pull-left" ng-click="searchForMovie()">
+				<i class="icon ion-search"></i>
+			</button>
+			<!-- <button class="button pull-right" ng-click="randomMovie()">
+				Random Movie<i class="icon ion-android-film"></i>
+			</button> -->
+		</ion-header-bar>
+
+		<ion-content>
+			<!-- <ion-refresher on-refresh=""></ion-refresher> -->
+			<h1 class="text-center">Movies</h1>
+			<div class="card list" ng-repeat="movie in movies | reverse">
+				<div class="item item-avatar-left">
+					<h4>{{movie.Title}}</h4>
+					<p>Metascore: {{movie.Metascore}}</p>
+					<p>Rated: {{movie.Rated}}</p>
+					<p>Run-time: {{movie.Runtime}}</p>
+					<p>Actors: {{movie.Actors}}</p>
+					<p>Director(s): {{movie.Director}}</p>
+				</div>
+				<div class="item item-body">
+					<img ng-src="{{movie.Poster}}" alt="">
+				</div>
+			</div>
+		</ion-content>
+
+	</body>
+</html>
